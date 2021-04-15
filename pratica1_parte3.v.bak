@@ -1,0 +1,100 @@
+module multiplex(dado1, dado2, dado3, dado4, sinalControle,out);
+	input [2:0] dado1, dado2, dado3, dado4;
+	input [3:0] sinalControle; 
+	output reg [2:0] out;
+	integer i,j;
+
+	always @(dado1, dado2, sinalControle) begin
+		j = 1;
+		
+		for(i = 0; i < 4 && j; i  = i + 1) begin
+			if(sinalControle[i] == 1)
+				j=0;
+		end
+		
+		case (i)
+			0: out <= dado1;
+			1: out <= dado2;
+			2: out <= dado3;
+			3: out <= dado4;
+		endcase
+	end
+endmodule
+
+module pratica1_parte3(
+	input clock,
+	input [2:0]bits,
+	input [2:0]conjunto,
+	input write,
+	output reg hit,
+	output [2:0]data);
+	
+	reg [8:0] vias [3:0][7:0]; // 4 vias de 8 espaÃƒÆ’Ã‚Â§os de 9 bits
+	reg [3:0] hits;
+	reg [2:0] datas [3:0]; // dados de 3 bits vindos de 4 vias
+	reg tagEquals [3:0];
+	reg validBit [3:0];
+	reg [3:0] LRU;
+	reg dirty;
+	reg [2:0] dataWrite;
+	integer i,j, break;
+	
+	initial begin
+		for(i=0; i<4; i = i + 1)begin
+			for(j=0; j<7; j = j + 1) begin
+				vias[i][j] = 8'b0;
+			end
+		end
+	end
+		
+	// nÃƒÆ’Ã‚Âºmero arbitrÃƒÆ’Ã‚Â¡rio maior que possÃƒÆ’Ã‚Â­veis ÃƒÆ’Ã‚Â­ndices de hit
+	integer firstHitTagIndex = 4;
+	integer lastLRU;
+	
+	always@(posedge clock) begin
+	  
+		for(i=0; i<4; i = i + 1) begin
+			tagEquals[i] = vias[i][conjunto][5:3] == bits;
+			validBit[i] = vias[i][conjunto][8];
+			LRU[i] = vias[i][conjunto][7];
+			
+			hits[i] = validBit[i] & tagEquals[i];
+			datas[i] = vias[i][conjunto][2:0];
+			
+			// Encontrou a primeira correspondÃƒÆ’Ã‚Âªncia de tag
+			if (firstHitTagIndex == 4 && tagEquals[i]) begin
+				firstHitTagIndex = i;
+				lastLRU = i;
+			end
+		end
+		
+		// NÃƒÆ’Ã‚Â£o encontrou correpondÃƒÆ’Ã‚Âªncia de tag
+		break = 1;
+		if(firstHitTagIndex == 4)
+			for(i=0; i<4 && break; i = i + 1)
+				if(LRU[i] == 0)begin
+					lastLRU = i;
+					firstHitTagIndex = i;
+					break = 0;
+				end	
+				
+		hit = |hits;
+		
+		if(hit && write) dirty = 1;
+		else dirty = 0;
+		
+		if(hit) dataWrite = datas[firstHitTagIndex];
+		else dataWrite = bits;
+		
+		vias[firstHitTagIndex][conjunto] = {1'b1, 1'b1, dirty, bits, dataWrite};
+		
+		LRU[firstHitTagIndex] = 1;
+		
+		if(&LRU)
+			for(i=0; i<4; i = i +1)
+				if(i != lastLRU) vias[i][conjunto][7] = 0;
+	end
+	
+	multiplex mult(datas[0],datas[1],datas[2],datas[3],hits,data);
+	
+endmodule

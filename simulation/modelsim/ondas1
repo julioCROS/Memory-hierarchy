@@ -1,0 +1,37 @@
+onerror {resume}
+quietly WaveActivateNextPane {} 0
+add wave -noupdate /pratica1_parte3/clock
+add wave -noupdate /pratica1_parte3/bits
+add wave -noupdate /pratica1_parte3/conjunto
+add wave -noupdate /pratica1_parte3/dataToWrite
+add wave -noupdate /pratica1_parte3/write
+add wave -noupdate -expand -subitemconfig {{/pratica1_parte3/vias[3]} -expand {/pratica1_parte3/vias[2]} -expand {/pratica1_parte3/vias[1]} -expand {/pratica1_parte3/vias[0]} -expand} /pratica1_parte3/vias
+TreeUpdate [SetDefaultTree]
+WaveRestoreCursors {{Cursor 1} {798 ps} 0}
+quietly wave cursor active 1
+configure wave -namecolwidth 220
+configure wave -valuecolwidth 100
+configure wave -justifyvalue left
+configure wave -signalnamewidth 0
+configure wave -snapdistance 10
+configure wave -datasetprefix 0
+configure wave -rowmargin 4
+configure wave -childrowmargin 2
+configure wave -gridoffset 0
+configure wave -gridperiod 1
+configure wave -griddelta 40
+configure wave -timeline 0
+configure wave -timelineunits ns
+update
+WaveRestoreZoom {0 ps} {935 ps}
+view wave 
+wave clipboard store
+wave create -driver freeze -pattern repeater -initialvalue xxx -period 100ps -sequence { xxx 011 100 000 100 001 000 101  } -repeat never -range 2 0 -starttime 0ps -endtime 1000ps sim:/pratica1_parte3/bits 
+WaveExpandAll -1
+wave create -driver freeze -pattern repeater -initialvalue xxx -period 100ps -sequence { xxx 001 011 001 001 001 011 001  } -repeat never -range 2 0 -starttime 0ps -endtime 1000ps sim:/pratica1_parte3/conjunto 
+WaveExpandAll -1
+wave create -driver freeze -pattern repeater -initialvalue x -period 100ps -sequence { x 0 0 1 0 0 0 0  } -repeat never -starttime 0ps -endtime 1000ps sim:/pratica1_parte3/write 
+wave create -driver freeze -pattern repeater -initialvalue xxx -period 100ps -sequence { xxx xxx xxx 111 xxx xxx xxx xxx  } -repeat never -range 2 0 -starttime 0ps -endtime 1000ps sim:/pratica1_parte3/dataToWrite 
+WaveExpandAll -1
+WaveCollapseAll -1
+wave clipboard restore

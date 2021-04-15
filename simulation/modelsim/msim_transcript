@@ -1,0 +1,478 @@
+# Reading C:/altera/13.0sp1/modelsim_ase/tcl/vsim/pref.tcl 
+# do pratica1_parte3_run_msim_rtl_verilog.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/julio/Music/pratica1_parte3 {C:/Users/julio/Music/pratica1_parte3/pratica1_parte3.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module multiplex
+# -- Compiling module pratica1_parte3
+# 
+# Top level modules:
+# 	pratica1_parte3
+# 
+vsim work.pratica1_parte3
+# vsim work.pratica1_parte3 
+# Loading work.pratica1_parte3
+# Loading work.multiplex
+add wave -position insertpoint  \
+sim:/pratica1_parte3/vias
+run
+force -freeze sim:/pratica1_parte3/clock 1 0, 0 {25 ps} -r 50
+add wave -position insertpoint  \
+sim:/pratica1_parte3/clock
+wave create -driver freeze -pattern repeater -initialvalue xxx -period 100ps -sequence { xxx 011 100 000 100 001 000 101  } -repeat never -range 2 0 -starttime 0ps -endtime 1000ps sim:/pratica1_parte3/bits
+add wave -position 1 -autoscale 1 -format Literal -height 17 -editable 2 Edit:/pratica1_parte3/bits
+wave create -driver freeze -pattern repeater -initialvalue xxx -period 100ps -sequence { xxx 001 011 001 001 001 011 001  } -repeat never -range 2 0 -starttime 0ps -endtime 1000ps sim:/pratica1_parte3/conjunto
+add wave -position 1 -autoscale 1 -format Literal -height 17 -editable 2 Edit:/pratica1_parte3/conjunto
+add wave -position 3 -autoscale 1 -format Literal -height 17 -editable 2 Edit:/pratica1_parte3/conjunto
+wave create -driver freeze -pattern repeater -initialvalue x -period 100ps -sequence { x 0 0 1 0 0 0 0  } -repeat never -starttime 0ps -endtime 1000ps sim:/pratica1_parte3/write
+add wave -position 3 -format Logic -height 17 -editable 2 Edit:/pratica1_parte3/write
+wave create -driver freeze -pattern repeater -initialvalue xxx -period 100ps -sequence { xxx xxx xxx 111 xxx xxx xxx xxx  } -repeat never -range 2 0 -starttime 0ps -endtime 1000ps sim:/pratica1_parte3/dataToWrite
+add wave -position 3 -autoscale 1 -format Literal -height 17 -editable 2 Edit:/pratica1_parte3/dataToWrite
+run
+run
+run
+run
+run
+run
+run
+vlog -reportprogress 300 -work work C:/Users/julio/Music/pratica1_parte3/pratica1_parte3.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module multiplex
+# -- Compiling module pratica1_parte3
+# 
+# Top level modules:
+# 	pratica1_parte3
+vlog -reportprogress 300 -work work C:/Users/julio/Music/pratica1_parte3/pratica1_parte3.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module multiplex
+# -- Compiling module pratica1_parte3
+# 
+# Top level modules:
+# 	pratica1_parte3
+vlog -reportprogress 300 -work work C:/Users/julio/Music/pratica1_parte3/pratica1_parte3.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module multiplex
+# -- Compiling module pratica1_parte3
+# 
+# Top level modules:
+# 	pratica1_parte3
+vlog -reportprogress 300 -work work C:/Users/julio/Music/pratica1_parte3/pratica1_parte3.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module multiplex
+# -- Compiling module pratica1_parte3
+# 
+# Top level modules:
+# 	pratica1_parte3
+vlog -reportprogress 300 -work work C:/Users/julio/Music/pratica1_parte3/pratica1_parte3.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module multiplex
+# -- Compiling module pratica1_parte3
+# 
+# Top level modules:
+# 	pratica1_parte3
+restart -f
+# Loading work.pratica1_parte3
+# Loading work.multiplex
+run
+force -freeze sim:/pratica1_parte3/clock 1 0, 0 {25 ps} -r 50
+run
+# Hit = 0 | Tag = 011 | Data = xxx |
+# Hit = 1 | Tag = 011 | Data = 000 |
+# Hit = 1 | Tag = 100 | Data = 011 |
+run
+# Hit = 1 | Tag = 100 | Data = 011 |
+# Hit = 1 | Tag = 000 | Data = 000 |
+run
+# Hit = 1 | Tag = 000 | Data = 010 |
+# Hit = 0 | Tag = 100 | Data = 111 |
+run
+# Hit = 1 | Tag = 100 | Data = 011 |
+# Hit = 1 | Tag = 001 | Data = 100 |
+run
+# Hit = 1 | Tag = 001 | Data = 011 |
+# Hit = 1 | Tag = 000 | Data = 011 |
+run
+# Hit = 1 | Tag = 000 | Data = 011 |
+# Hit = 0 | Tag = 101 | Data = 000 |
+run
+# Hit = 1 | Tag = 101 | Data = 011 |
+# Hit = 1 | Tag = 101 | Data = 101 |
+restart -f
+run
+force -freeze sim:/pratica1_parte3/clock 1 0, 0 {50 ps} -r 100
+run
+# Hit = 0 | Tag = 011 | Data = xxx |
+# Hit = 0 | Tag = 100 | Data = 000 |
+run
+# Hit = 1 | Tag = 000 | Data = 000 |
+run
+# Hit = 0 | Tag = 100 | Data = 010 |
+run
+# Hit = 1 | Tag = 001 | Data = 011 |
+run
+# Hit = 1 | Tag = 000 | Data = 011 |
+run
+# Hit = 0 | Tag = 101 | Data = 011 |
+run
+# Hit = 1 | Tag = 101 | Data = 011 |
+restart -f
+run
+force -freeze sim:/pratica1_parte3/clock 0 0, 1 {50 ps} -r 100
+run
+# Hit = 0 | Tag = 011 | Data = xxx |
+run
+# Hit = 0 | Tag = 100 | Data = 000 |
+run
+# Hit = 1 | Tag = 000 | Data = 000 |
+run
+# Hit = 0 | Tag = 100 | Data = 010 |
+run
+# Hit = 1 | Tag = 001 | Data = 011 |
+run
+# Hit = 1 | Tag = 000 | Data = 011 |
+run
+# Hit = 0 | Tag = 101 | Data = 011 |
+restart -f
+run
+force -freeze sim:/pratica1_parte3/clock 0 0, 1 {25 ps} -r 50
+run
+# Hit = 0 | Tag = 011 | Data = xxx |
+# Hit = 1 | Tag = 011 | Data = 000 |
+run
+# Hit = 1 | Tag = 100 | Data = 011 |
+# Hit = 1 | Tag = 100 | Data = 011 |
+run
+# Hit = 1 | Tag = 000 | Data = 000 |
+# Hit = 1 | Tag = 000 | Data = 010 |
+run
+# Hit = 0 | Tag = 100 | Data = 111 |
+# Hit = 1 | Tag = 100 | Data = 011 |
+run
+# Hit = 1 | Tag = 001 | Data = 100 |
+# Hit = 1 | Tag = 001 | Data = 011 |
+run
+# Hit = 1 | Tag = 000 | Data = 011 |
+# Hit = 1 | Tag = 000 | Data = 011 |
+run
+# Hit = 0 | Tag = 101 | Data = 000 |
+# Hit = 1 | Tag = 101 | Data = 011 |
+restart -f
+run
+force -freeze sim:/pratica1_parte3/clock 1 0, 0 {50 ps} -r 100
+run
+# Hit = 0 | Tag = 011 | Data = xxx |
+# Hit = 0 | Tag = 100 | Data = 000 |
+run
+# Hit = 1 | Tag = 000 | Data = 000 |
+run
+# Hit = 0 | Tag = 100 | Data = 010 |
+run
+# Hit = 1 | Tag = 001 | Data = 011 |
+run
+# Hit = 1 | Tag = 000 | Data = 011 |
+run
+# Hit = 0 | Tag = 101 | Data = 011 |
+run
+# Hit = 1 | Tag = 101 | Data = 011 |
+# A time value could not be extracted from the current line
+vlog -reportprogress 300 -work work C:/Users/julio/Music/pratica1_parte3/pratica1_parte3.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module multiplex
+# -- Compiling module pratica1_parte3
+# 
+# Top level modules:
+# 	pratica1_parte3
+vlog -reportprogress 300 -work work C:/Users/julio/Music/pratica1_parte3/pratica1_parte3.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module multiplex
+# -- Compiling module pratica1_parte3
+# 
+# Top level modules:
+# 	pratica1_parte3
+vlog -reportprogress 300 -work work C:/Users/julio/Music/pratica1_parte3/pratica1_parte3.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module multiplex
+# -- Compiling module pratica1_parte3
+# 
+# Top level modules:
+# 	pratica1_parte3
+restart -f
+# Loading work.pratica1_parte3
+# Loading work.multiplex
+run
+force -freeze sim:/pratica1_parte3/clock 1 0, 0 {50 ps} -r 100
+run
+# ***Hit = 0 | Tag = 011 | Data = xxx |
+# Invertendo LRU V:          4 | C: 1
+# ***Hit = 0 | Tag = 100 | Data = 000 |
+# Invertendo LRU V:          4 | C: 3
+run
+# ***Hit = 1 | Tag = 000 | Data = 000 |
+# Invertendo LRU V:          1 | C: 1
+run
+# ***Hit = 0 | Tag = 100 | Data = 010 |
+# Invertendo LRU V:          2 | C: 1
+run
+# ***Hit = 1 | Tag = 001 | Data = 011 |
+# Invertendo LRU V:          4 | C: 1
+run
+# ***Hit = 1 | Tag = 000 | Data = 011 |
+# Invertendo LRU V:          4 | C: 3
+run
+# ***Hit = 0 | Tag = 101 | Data = 011 |
+# Invertendo LRU V:          1 | C: 1
+run
+# ***Hit = 1 | Tag = 101 | Data = 011 |
+# Invertendo LRU V:          1 | C: 1
+vlog -reportprogress 300 -work work C:/Users/julio/Music/pratica1_parte3/pratica1_parte3.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module multiplex
+# -- Compiling module pratica1_parte3
+# 
+# Top level modules:
+# 	pratica1_parte3
+vlog -reportprogress 300 -work work C:/Users/julio/Music/pratica1_parte3/pratica1_parte3.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module multiplex
+# -- Compiling module pratica1_parte3
+# 
+# Top level modules:
+# 	pratica1_parte3
+vlog -reportprogress 300 -work work C:/Users/julio/Music/pratica1_parte3/pratica1_parte3.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module multiplex
+# -- Compiling module pratica1_parte3
+# 
+# Top level modules:
+# 	pratica1_parte3
+restart -f
+# Loading work.pratica1_parte3
+# Loading work.multiplex
+run
+force -freeze sim:/pratica1_parte3/clock 1 0, 0 {50 ps} -r 100
+run
+# ***Hit = 0 | Tag = 011 | Data = xxx |
+# True
+# ***Hit = 0 | Tag = 100 | Data = 000 |
+# True
+run
+# ***Hit = 1 | Tag = 000 | Data = 000 |
+# True
+run
+# ***Hit = 0 | Tag = 100 | Data = 010 |
+run
+# ***Hit = 1 | Tag = 001 | Data = 011 |
+run
+# ***Hit = 1 | Tag = 000 | Data = 011 |
+run
+# ***Hit = 0 | Tag = 101 | Data = 011 |
+# True
+run
+# ***Hit = 1 | Tag = 101 | Data = 011 |
+vlog -reportprogress 300 -work work C:/Users/julio/Music/pratica1_parte3/pratica1_parte3.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module multiplex
+# -- Compiling module pratica1_parte3
+# 
+# Top level modules:
+# 	pratica1_parte3
+vlog -reportprogress 300 -work work C:/Users/julio/Music/pratica1_parte3/pratica1_parte3.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module multiplex
+# -- Compiling module pratica1_parte3
+# 
+# Top level modules:
+# 	pratica1_parte3
+restart -f
+# Loading work.pratica1_parte3
+# Loading work.multiplex
+run
+force -freeze sim:/pratica1_parte3/clock 1 0, 0 {50 ps} -r 100
+run
+# ***Hit = 0 | Tag = 011 | Data = xxx |
+# __True__
+# ***Hit = 0 | Tag = 100 | Data = 000 |
+# __True__
+vlog -reportprogress 300 -work work C:/Users/julio/Music/pratica1_parte3/pratica1_parte3.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module multiplex
+# -- Compiling module pratica1_parte3
+# 
+# Top level modules:
+# 	pratica1_parte3
+vlog -reportprogress 300 -work work C:/Users/julio/Music/pratica1_parte3/pratica1_parte3.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module multiplex
+# -- Compiling module pratica1_parte3
+# 
+vlog -reportprogress 300 -work work C:/Users/julio/Music/pratica1_parte3/pratica1_parte3.v
+# Top level modules:
+# 	pratica1_parte3
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module multiplex
+# -- Compiling module pratica1_parte3
+# 
+# Top level modules:
+# 	pratica1_parte3
+restart -f
+# Loading work.pratica1_parte3
+# Loading work.multiplex
+run
+force -freeze sim:/pratica1_parte3/clock 1 0, 0 {50 ps} -r 100
+run
+# ***Hit = 0 | Tag = 011 | Data = xxx |
+# __True__
+# 1, 1, 1, 1
+# ***Hit = 0 | Tag = 100 | Data = 000 |
+# __True__
+# 1, 1, 1, 1
+vlog -reportprogress 300 -work work C:/Users/julio/Music/pratica1_parte3/pratica1_parte3.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module multiplex
+# -- Compiling module pratica1_parte3
+# 
+# Top level modules:
+# 	pratica1_parte3
+vlog -reportprogress 300 -work work C:/Users/julio/Music/pratica1_parte3/pratica1_parte3.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module multiplex
+# -- Compiling module pratica1_parte3
+# 
+# Top level modules:
+# 	pratica1_parte3
+restart -f
+# Loading work.pratica1_parte3
+# Loading work.multiplex
+run
+force -freeze sim:/pratica1_parte3/clock 1 0, 0 {50 ps} -r 100
+run
+# LRU[          0] = 1
+# LRU[          1] = 1
+# LRU[          2] = 1
+# LRU[          3] = 0
+# ***Hit = 0 | Tag = 011 | Data = xxx |
+# __True__
+# 1, 1, 1, 1
+# LRU[          0] = 0
+# ***Hit = 0 | Tag = 100 | Data = 000 |
+# __True__
+# 1, 1, 1, 1
+run
+# LRU[          0] = 0
+# ***Hit = 1 | Tag = 000 | Data = 000 |
+# __True__
+# 1, 1, 1, 1
+run
+# LRU[          0] = 1
+# LRU[          1] = 0
+# LRU[          2] = 0
+# LRU[          3] = 0
+# ***Hit = 0 | Tag = 100 | Data = 010 |
+# __True__
+# 1, 1, 0, 0
+run
+# LRU[          0] = 0
+# LRU[          1] = 1
+# LRU[          2] = 0
+# ***Hit = 1 | Tag = 001 | Data = 011 |
+# __True__
+# 0, 1, 1, 0
+run
+# LRU[          0] = 1
+# LRU[          1] = 0
+# ***Hit = 1 | Tag = 000 | Data = 011 |
+run
+# LRU[          0] = 0
+# LRU[          1] = 0
+# LRU[          2] = 1
+# LRU[          3] = 0
+# ***Hit = 0 | Tag = 101 | Data = 011 |
+# __True__
+# 1, 0, 1, 0
+run
+# LRU[          0] = 1
+# ***Hit = 1 | Tag = 101 | Data = 011 |
+# __True__
+# 1, 0, 1, 0
+vlog -reportprogress 300 -work work C:/Users/julio/Music/pratica1_parte3/pratica1_parte3.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module multiplex
+# -- Compiling module pratica1_parte3
+# 
+# Top level modules:
+# 	pratica1_parte3
+vlog -reportprogress 300 -work work C:/Users/julio/Music/pratica1_parte3/pratica1_parte3.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module multiplex
+# -- Compiling module pratica1_parte3
+# 
+# Top level modules:
+# 	pratica1_parte3
+restart -f
+# Loading work.pratica1_parte3
+# Loading work.multiplex
+run
+force -freeze sim:/pratica1_parte3/clock 1 0, 0 {50 ps} -r 100
+run
+# LRU[          0] = 1
+# LRU[          1] = 1
+# LRU[          2] = 1
+# LRU[          3] = 0
+# ***Hit = 0 | Tag = 011 | Data = xxx |
+# __True__
+# LRU[          0] = 0
+# LRU[          1] = 0
+# LRU[          2] = 0
+# LRU[          3] = 0
+# ***Hit = 0 | Tag = 100 | Data = 000 |
+run
+# LRU[          0] = 0
+# LRU[          1] = 0
+# LRU[          2] = 0
+# LRU[          3] = 1
+# ***Hit = 1 | Tag = 000 | Data = 000 |
+run
+# LRU[          0] = 1
+# LRU[          1] = 0
+# LRU[          2] = 0
+# LRU[          3] = 1
+# ***Hit = 0 | Tag = 100 | Data = 010 |
+run
+# LRU[          0] = 1
+# LRU[          1] = 1
+# LRU[          2] = 0
+# LRU[          3] = 1
+# ***Hit = 1 | Tag = 001 | Data = 011 |
+# __True__
+run
+# LRU[          0] = 1
+# LRU[          1] = 0
+# LRU[          2] = 0
+# LRU[          3] = 0
+# ***Hit = 0 | Tag = 000 | Data = 011 |
+run
+# LRU[          0] = 0
+# LRU[          1] = 0
+# LRU[          2] = 1
+# LRU[          3] = 0
+# ***Hit = 0 | Tag = 101 | Data = 000 |
+run
+# LRU[          0] = 1
+# LRU[          1] = 0
+# LRU[          2] = 1
+# LRU[          3] = 0
+# ***Hit = 1 | Tag = 101 | Data = 011 |
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf C:/Users/julio/Music/pratica1_parte3/simulation/modelsim/ondas1
+wave editwrite -file C:/Users/julio/Music/pratica1_parte3/simulation/modelsim/ondas1 -append
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf C:/Users/julio/Music/pratica1_parte3/simulation/modelsim/ondas1
+wave editwrite -file C:/Users/julio/Music/pratica1_parte3/simulation/modelsim/ondas1 -append
+wave export -file C:/Users/julio/Music/pratica1_parte3/simulation/modelsim/ondas_versaoFinal -starttime 0 -endtime 800 -format force -designunit pratica1_parte3
